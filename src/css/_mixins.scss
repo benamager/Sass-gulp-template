@@ -1,0 +1,11 @@
+//noter
+@mixin theme($theme: darkGrey) {
+  background-color: $theme;
+}
+
+@mixin roundedCorners($a: 7px, $b: 7px, $c: 7px, $d: 7px) {
+  border-top-left-radius: $a;
+  border-top-right-radius: $b;
+  border-bottom-right-radius: $c;
+  border-bottom-left-radius: $d;
+}

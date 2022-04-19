@@ -1,0 +1,33 @@
+@use "variables"; //imports with the namespace 'variables'
+@use "variables" as variabler; //imports with a custom namespace
+@use "mixins"; //imports with the namespace 'mixins'
+@use "mixins" as *; //removes the namespace, so you can use it without
+
+@use "index"; //we created a 'scss' file with bunch of forwards which can be used. (this packages, if we need them in more places etc.)
+
+//----- with custom namespace (else just the import name) -----
+//variabler.$primary-color
+//----- without any namespace -----
+//$primary-color
+
+//when we use 'use' we bring it into that file, to it to be used in that file
+//when we use a 'forward' it is to bring it into that file to bring it out again
+
+.siteHeader {
+  height: 200px;
+  background-color: variabler.$primary-color;
+  &__primaryNavigation {
+    @include mixins.theme;
+  }
+  &__logo {
+    font-size: 3rem;
+    color: purple;
+    font-family: variabler.$fontStack;
+    display: block;
+    width: 200px;
+    height: 30px;
+    padding: 1rem;
+    background-color: cyan;
+    @include mixins.roundedCorners($b: 20px);
+  }
+}
